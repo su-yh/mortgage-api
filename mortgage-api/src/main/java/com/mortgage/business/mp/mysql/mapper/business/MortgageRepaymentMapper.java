@@ -21,6 +21,8 @@ public interface MortgageRepaymentMapper extends BaseMapperX<MortgageRepaymentEn
         LambdaQueryWrapperX<MortgageRepaymentEntity> queryWrapperX = build();
         queryWrapperX.eqIfPresent(MortgageRepaymentEntity::getUserId, userId);
 
+        queryWrapperX.orderByDesc(MortgageRepaymentEntity::getCreated, MortgageRepaymentEntity::getId);
+
         return selectPage(pageParam, queryWrapperX);
     }
 }

@@ -22,4 +22,18 @@ public class MortgageRepaymentService {
     public PageResult<MortgageRepaymentEntity> pageList(PageParam pageParam, @NonNull Long userId) {
         return mortgageRepaymentMapper.pageList(pageParam, userId);
     }
+
+    public Long createEntity(MortgageRepaymentEntity entity, Long userId, String userNickName) {
+        entity.setUserId(userId);
+        entity.setUserNickName(userNickName);
+        mortgageRepaymentMapper.insert(entity);
+        return entity.getId();
+    }
+
+    public Long updateEntity(MortgageRepaymentEntity entity, Long userId, String userNickName) {
+        entity.setUserId(userId);
+        entity.setUserNickName(userNickName);
+        mortgageRepaymentMapper.updateById(entity);
+        return entity.getId();
+    }
 }

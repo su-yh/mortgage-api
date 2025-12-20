@@ -4,10 +4,13 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.base.web.validation.groups.ValidationGroups;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -21,6 +24,8 @@ public class MortgageRepaymentEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     @Schema(description = "主键ID")
+    @Null(groups = ValidationGroups.Req.Create.class)
+    @NotNull(groups = ValidationGroups.Req.Update.class)
     private Long id;
 
     private Long userId;
