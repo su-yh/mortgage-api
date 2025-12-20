@@ -35,6 +35,7 @@ public class MortgageRepaymentEntity {
 
     @TableField(value = "loan_type")
     @Schema(description = "贷款类型：1-公积金贷款 2-商业贷款 3-组合贷款")
+    @NotNull(groups = ValidationGroups.Req.Create.class)
     private Integer loanType;
 
     @TableField(value = "repayment_period")
