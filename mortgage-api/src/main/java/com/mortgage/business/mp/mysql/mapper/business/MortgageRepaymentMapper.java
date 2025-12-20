@@ -4,8 +4,11 @@ import com.base.mp.mybatis.BaseMapperX;
 import com.base.mp.mybatis.LambdaQueryWrapperX;
 import com.base.mp.mybatis.PageParam;
 import com.base.mp.mybatis.PageResult;
+import com.mortgage.business.dto.mortgage.MortgageStatisticsDetailDto;
 import com.mortgage.business.mp.mysql.entity.business.MortgageRepaymentEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.data.repository.query.Param;
 
 /**
  * @author suyh
@@ -25,4 +28,11 @@ public interface MortgageRepaymentMapper extends BaseMapperX<MortgageRepaymentEn
 
         return selectPage(pageParam, queryWrapperX);
     }
+
+    @Select("SELECT count(1) AS repayment_period, SUM(actual_principal) AS actual_principal, \n" +
+            "  SUM(actual_interest) AS actual_interest, sum(actual_total) as actual_total, \n" +
+            "  0 AS remaining_loan_amount\n" +
+            "FROM mortgage_repayment\n" +
+            "WHERE user_id = #{userId} AND loan_type = #{loanType}")
+    MortgageStatisticsDetailDto selectStatistics(@Param("userId") Long userId, @Param("loanType") Integer loanType);
 }

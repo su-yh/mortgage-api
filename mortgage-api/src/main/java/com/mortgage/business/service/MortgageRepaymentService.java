@@ -3,6 +3,8 @@ package com.mortgage.business.service;
 import com.base.mp.mybatis.PageParam;
 import com.base.mp.mybatis.PageResult;
 import com.base.web.exception.ExceptionUtil;
+import com.mortgage.business.dto.mortgage.MortgageStatisticsDetailDto;
+import com.mortgage.business.dto.mortgage.MortgageStatisticsDto;
 import com.mortgage.business.mp.mysql.entity.business.MortgageRepaymentEntity;
 import com.mortgage.business.mp.mysql.mapper.business.MortgageRepaymentMapper;
 import com.mortgage.constant.enums.ApiErrorCodeEnums;
@@ -49,5 +51,15 @@ public class MortgageRepaymentService {
         }
 
         mortgageRepaymentMapper.deleteById(id);
+    }
+
+    public MortgageStatisticsDto statisticsQuery(Long userId) {
+        MortgageStatisticsDetailDto commercialDetail = mortgageRepaymentMapper.selectStatistics(userId, 1);
+        MortgageStatisticsDetailDto publicFundDetail = mortgageRepaymentMapper.selectStatistics(userId, 1);
+
+        MortgageStatisticsDto dto = new MortgageStatisticsDto();
+        dto.setCommercialDetail(commercialDetail);
+        dto.setPublicFundDetail(publicFundDetail);
+        return dto;
     }
 }

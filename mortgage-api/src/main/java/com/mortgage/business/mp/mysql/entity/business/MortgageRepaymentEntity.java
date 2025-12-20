@@ -33,6 +33,14 @@ public class MortgageRepaymentEntity {
     @TableField(value = "user_nick_name")
     private String userNickName;
 
+    // export enum LoanTypeEnum {
+    //   /** 商业贷款 */
+    //   COMMERCIAL = 1,
+    //   /** 公积金贷款 */
+    //   PUBLIC_FUND = 2,
+    //   /** 组合贷款 */
+    //   COMBINATION = 3
+    // }
     @TableField(value = "loan_type")
     @Schema(description = "贷款类型：1-公积金贷款 2-商业贷款 3-组合贷款")
     @NotNull(groups = ValidationGroups.Req.Create.class)
