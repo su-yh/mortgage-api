@@ -1,7 +1,7 @@
 [submodule "web-spring-boot-starter"]
 	path = web-spring-boot-starter
  	# url = https://github.com/su-yh/web-spring-boot-starter.git
- 	url = git@github.com:su-yh/web-spring-boot-starter.git
+	url = git@github.com:su-yh/web-spring-boot-starter.git
 	branch = develop
 
 # 配置私有子模块地址

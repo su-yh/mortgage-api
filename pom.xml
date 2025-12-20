@@ -17,7 +17,7 @@
     </properties>
 
     <modules>
-        <module>mortgage-api</module>
+<!--        <module>mortgage-api</module>-->
         <module>web-spring-boot-starter</module>
     </modules>
 
