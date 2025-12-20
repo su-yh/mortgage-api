@@ -1,0 +1,52 @@
+package com.mortgage.system.service;
+
+import com.base.mp.mybatis.PageParam;
+import com.base.mp.mybatis.PageResult;
+import com.mortgage.rouyi.entity.SysRoleEntity;
+import com.mortgage.rouyi.mapper.ApiSysRoleMapper;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class SysRoleService {
+    private final ApiSysRoleMapper sysRoleMapper;
+
+
+    public List<SysRoleEntity> selectRoleList(@Nullable Collection<Long> roleIds) {
+        return sysRoleMapper.selectRoleList(roleIds);
+    }
+
+
+    public PageResult<SysRoleEntity> listPage(PageParam pageParam, String roleNameLike) {
+        return sysRoleMapper.listPage(pageParam, roleNameLike);
+    }
+
+    public List<SysRoleEntity> listAll() {
+        return sysRoleMapper.selectList();
+    }
+
+    public Long create(SysRoleEntity entity) {
+        sysRoleMapper.insert(entity);
+
+        return entity.getRoleId();
+    }
+
+    public void update(SysRoleEntity entity) {
+        sysRoleMapper.updateById(entity);
+    }
+
+    public void delete(@Nullable Long roleId) {
+        if (roleId == null) {
+            return;
+        }
+
+        sysRoleMapper.deleteById(roleId);
+    }
+}

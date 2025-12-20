@@ -1,0 +1,47 @@
+mortgage:
+  base:
+    file:
+      local:
+        dir: "/tmp/mortgage"
+      oss:
+        region: "cn-shenzhen"
+        # 公网访问
+        # endpoint: "https://oss-cn-shenzhen.aliyuncs.com"
+        # 内网访问
+        endpoint: "https://oss-cn-shenzhen-internal.aliyuncs.com"
+        bucket-name: "suyh-shenzhen-public"
+
+
+sys:
+  web:
+    user:
+      captcha:
+        two-factor-auth-enabled: false
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: suyh,suyh_mac
+
+
+mortgage:
+  base:
+    file:
+      local:
+        dir: "/tmp/mortgage"
+      minio:
+        endpoint: "http://minio.qu-yun.isuyh.com"
+        region: "cn-shenzhen-1"
+        ak: "M4HGteCOYWk43AdyKlXN"
+        sk: "JZnytJbJWQGyr0u05zJsRRc3VQqCDCGN6HAn4goJ"
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: suyh_dev
+
