@@ -60,6 +60,7 @@ public class MortgageRepaymentEntity {
 
     @TableField(value = "actual_total")
     @Schema(description = "实际还款总金额（自动计算）")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private BigDecimal actualTotal;
 
     @TableField(value = "remaining_loan_amount")
