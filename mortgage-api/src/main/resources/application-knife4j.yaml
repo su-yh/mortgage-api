@@ -46,19 +46,9 @@ springdoc:
         - "/system/file/oss/**"
       packages-to-scan:
         - "com.mortgage.system.controller"
-    - group: "weight-config"
+    - group: "【Mortgage】mortgage-repayment"
       paths-to-match:
-        - "/weight/config/**"
-      packages-to-scan:
-        - "com.mortgage.business.controller"
-    - group: "product-attr-category"
-      paths-to-match:
-        - "/product/attr/category/**"
-      packages-to-scan:
-        - "com.mortgage.business.controller"
-    - group: "product-attr-detail"
-      paths-to-match:
-        - "/product/attr/detail/**"
+        - "/mortgage/repayment/**"
       packages-to-scan:
         - "com.mortgage.business.controller"
 
