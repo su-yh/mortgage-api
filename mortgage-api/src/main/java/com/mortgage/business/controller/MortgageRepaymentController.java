@@ -30,7 +30,7 @@ public class MortgageRepaymentController {
     private final MortgageRepaymentService mortgageRepaymentService;
 
     @Operation(summary = "【分页查询】查询")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/page/list", method = RequestMethod.GET)
     public PageResult<MortgageRepaymentEntity> pageList(
             @Parameter(hidden = true) @CurrLoginUser LoginUser loginUser,
             @Validated PageParam pageParam) {

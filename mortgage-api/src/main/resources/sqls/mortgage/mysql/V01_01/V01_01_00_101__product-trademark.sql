@@ -20,8 +20,8 @@ CREATE TABLE `mortgage_repayment`
     `realtime_LPR`          decimal(4, 2)           DEFAULT NULL COMMENT '当前实时的贷款利率百分比，如：3.5%',
     `realtime_BP`           decimal(5, 1)           DEFAULT NULL COMMENT '当前实时的基点，如：-30‱',
     `remark`                varchar(500)            DEFAULT NULL COMMENT '备注（如：提前还款、组合贷公积金部分等）',
-    `create_time`           datetime       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
-    `update_time`           datetime       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间'
+    `created`               datetime       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
+    `updated`               datetime       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间'
 ) ENGINE=InnoDB COMMENT='房贷实际还款记录表（区分公积金/商业）';
 
 

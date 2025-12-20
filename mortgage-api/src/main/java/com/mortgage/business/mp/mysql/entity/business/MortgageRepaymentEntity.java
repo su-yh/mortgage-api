@@ -88,13 +88,13 @@ public class MortgageRepaymentEntity {
     @Schema(description = "备注（如：提前还款、组合贷公积金部分等）")
     private String remark;
 
-    @TableField(value = "create_time")
+    @TableField(value = "created")
     @Schema(description = "记录创建时间")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Date createTime;
+    private Date created;
 
-    @TableField(value = "update_time")
+    @TableField(value = "updated")
     @Schema(description = "记录更新时间")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Date updateTime;
+    private Date updated;
 }
