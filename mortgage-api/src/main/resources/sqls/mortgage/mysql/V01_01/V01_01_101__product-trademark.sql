@@ -3,6 +3,8 @@
 CREATE TABLE `mortgage_repayment`
 (
     `id`                    bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID' PRIMARY KEY,
+    `user_id`               bigint COMMENT '所属用户ID',
+    `user_nick_name`        varchar(64) COMMENT '所属用户昵称',
     `loan_type`             tinyint        NOT NULL COMMENT '贷款类型：1-公积金贷款 2-商业贷款 3-组合贷款',
     `repayment_period`      int                     DEFAULT NULL COMMENT '还款期数',
     `actual_repayment_date` int            NOT NULL COMMENT '实际还款日期',
