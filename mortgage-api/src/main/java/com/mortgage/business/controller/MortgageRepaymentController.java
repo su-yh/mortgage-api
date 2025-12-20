@@ -16,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.groups.Default;
@@ -55,5 +56,14 @@ public class MortgageRepaymentController {
             @Parameter(hidden = true) @CurrLoginUser LoginUser loginUser,
             @Validated(value = {ValidationGroups.Req.Update.class, Default.class}) @RequestBody MortgageRepaymentEntity entity) {
         return mortgageRepaymentService.updateEntity(entity, loginUser.getId(), loginUser.getNickname());
+    }
+
+    @Operation(summary = "删除")
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public Long delete(
+            @Parameter(hidden = true) @CurrLoginUser LoginUser loginUser,
+            @RequestParam Long id) {
+         mortgageRepaymentService.delete(id, loginUser.getId());
+         return id;
     }
 }

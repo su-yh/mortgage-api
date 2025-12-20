@@ -8,8 +8,9 @@ import com.base.web.error.IErrorCode;
  */
 public enum ApiErrorCodeEnums implements IErrorCode {
     RECORD_NOT_EXISTS(3001001, "记录({0}) 不存在"),
-    WEIGHT_CONFIG_ID_NOT_EXISTS(3001002, "Weight config ID ({0}) does not exist"),
+    RECORD_EXISTS(3001002, "记录({0}) 已存在"),
     FILE_TOO_LARGE(3001003, "文件太大了"),
+    DELETE_NON_OWNER(3001004, "你没有权限删除这条记录"),
 
     ;
 
