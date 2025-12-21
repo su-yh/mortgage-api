@@ -9,4 +9,8 @@
 #      例： git config submodule.submoduleName.url git@localhost/SubModule.git
 #      git config submodule.web-spring-boot-starter.url git@github.com:su-yh/web-spring-boot-starter.git
 
+# 新下载主项目之后，需要执行：
+# git submodule init
+# git submodule update
+
 
