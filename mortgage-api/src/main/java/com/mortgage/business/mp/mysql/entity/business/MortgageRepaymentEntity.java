@@ -50,6 +50,10 @@ public class MortgageRepaymentEntity {
     @Schema(description = "还款期数")
     private Integer repaymentPeriod;
 
+    @TableField(value = "remaining_period")
+    @Schema(description = "剩余期数")
+    private Integer remainingPeriod;
+
     @TableField(value = "actual_repayment_date")
     @Schema(description = "实际还款日期")
     private Integer actualRepaymentDate;

@@ -4,5 +4,6 @@ ALTER TABLE mortgage_repayment ADD COLUMN `actual_rate` decimal(5, 1) COMMENT '�
 ALTER TABLE mortgage_repayment DROP `actual_total`;
 ALTER TABLE mortgage_repayment DROP `actual_LPR`;
 ALTER TABLE mortgage_repayment DROP `actual_BP`;
+ALTER TABLE mortgage_repayment ADD COLUMN `remaining_period` int COMMENT '剩余期数';
 
 
