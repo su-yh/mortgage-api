@@ -12,7 +12,7 @@ CREATE TABLE `mortgage_repayment`
     `actual_interest`       decimal(15, 2) NULL COMMENT '实际还款利息',
     `actual_overdue_fee`    decimal(15, 2)          DEFAULT '0.00' COMMENT '实际支付的逾期费用',
     `actual_total`          decimal(15, 2) GENERATED ALWAYS AS (((`actual_principal` + `actual_interest`) + `actual_overdue_fee`)) STORED COMMENT '实际还款总金额（自动计算）',
-    `remaining_loan_amount` decimal(18, 2)          DEFAULT NULL COMMENT '还款后当前剩余贷款本金金额',
+    `remaining_loan_amount` decimal(18, 2)          DEFAULT NULL COMMENT '当期还款前的剩余贷款',
     `payment_method`        varchar(20)    NULL COMMENT '还款方式：银行卡、支付宝、微信等',
     `payment_no`            varchar(50)             DEFAULT NULL COMMENT '支付单号/银行流水号',
     `actual_LPR`            decimal(4, 2)           DEFAULT NULL COMMENT '当前实际使用的贷款利率百分比，如：3.5%',

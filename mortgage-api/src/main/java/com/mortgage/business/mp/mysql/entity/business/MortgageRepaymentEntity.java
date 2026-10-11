@@ -66,13 +66,8 @@ public class MortgageRepaymentEntity {
     @Schema(description = "实际支付的逾期费用")
     private BigDecimal actualOverdueFee;
 
-    @TableField(value = "actual_total")
-    @Schema(description = "实际还款总金额（自动计算）")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private BigDecimal actualTotal;
-
     @TableField(value = "remaining_loan_amount")
-    @Schema(description = "还款后当前剩余贷款本金金额")
+    @Schema(description = "当期还款前的剩余贷款")
     private BigDecimal remainingLoanAmount;
 
     @TableField(value = "payment_method")
@@ -83,13 +78,9 @@ public class MortgageRepaymentEntity {
     @Schema(description = "支付单号/银行流水号")
     private String paymentNo;
 
-    @TableField(value = "actual_LPR")
-    @Schema(description = "当前实际使用的贷款利率百分比，如：3.5%")
-    private BigDecimal actualLPR;
-
-    @TableField(value = "actual_BP")
-    @Schema(description = "当前实际使用的基点，如：-30‱")
-    private BigDecimal actualBP;
+    @TableField(value = "actual_rate")
+    @Schema(description = "当前实际利息百分比，如：3.5%")
+    private BigDecimal actualRate;
 
     @TableField(value = "realtime_LPR")
     @Schema(description = "当前实时的贷款利率百分比，如：3.5%")
@@ -98,6 +89,10 @@ public class MortgageRepaymentEntity {
     @TableField(value = "realtime_BP")
     @Schema(description = "当前实时的基点，如：-30‱")
     private BigDecimal realtimeBP;
+
+    @TableField(value = "is_prepay")
+    @Schema(description = "是否提前还款")
+    private Boolean prepay;
 
     @TableField(value = "remark")
     @Schema(description = "备注（如：提前还款、组合贷公积金部分等）")
