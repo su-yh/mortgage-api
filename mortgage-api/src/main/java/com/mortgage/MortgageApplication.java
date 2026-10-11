@@ -1,6 +1,5 @@
 package com.mortgage;
 
-import com.mortgage.bytecodes.MybatisSqlDetailText;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MortgageApplication {
     public static void main(String[] args) {
-        MybatisSqlDetailText.rebuildSqlDetail();
+        // TODO: suyh - 有报错暂时行关掉
+        // MybatisSqlDetailText.rebuildSqlDetail();
         SpringApplication.run(MortgageApplication.class, args);
     }
 }
